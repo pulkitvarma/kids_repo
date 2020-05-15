@@ -6,17 +6,6 @@ import './App.css';
 
 class App extends Component {
 
-  componentDidMount() {
-    // chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
-    //   const url = new URL(tabs[0].url);
-    //   const domain = url.hostname;
-    //   this.setState({
-    //     domain: domain,
-    //   });
-    //   this.getHeadlines(domain);
-    // });
-  }
-
   render() {
     return (
       <div className="App">

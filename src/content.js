@@ -14,13 +14,6 @@ class Main extends React.Component {
           {
             // Callback is invoked with iframe's window and document instances
             ({ document, window }) => {
-              // Render Children
-
-              //  return (
-              //     <div className={'my-extension'}>
-              //          <h1>Hello world - My first Extension</h1>
-              //     </div>
-              //  )
               return <App document={document} window={window} isExt={true} />
             }
           }
@@ -38,8 +31,9 @@ ReactDOM.render(<Main />, app);
 
 app.style.display = "none";
 
-chrome.runtime.onMessage.addListener(request => {
-  if (request.type === 'getHeadlines') {
+chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
+  if (msg.type === 'getHeadlines') {
+    sendResponse(document.all[0].outerHTML);
     toggle();
   }
 });
